@@ -37,15 +37,18 @@ export default class AddLeaseForm extends React.Component {
     }));
   }
 
-  handleAddTenant = (tenant) => {
-
+  handleAddTenant = (tenant_id) => {
+    this.setState((prevState) => ({
+      tenants: prevState.tenants.concat(tenant_id)
+    }));
   }
 
-  handleDeleteTenant = (tenant_id) => {
-    this.setState(() => ({
+  handleDeleteTenant = (tenantIDToRemove) => {
+    this.setState((prevState) => ({
+      tenants: prevState.tenants.filter((tenantID) => tenantIDToRemove !== tenantID)
+    }));
+  };
 
-    }))
-  }
 
   render() {
     return (
@@ -75,7 +78,7 @@ export default class AddLeaseForm extends React.Component {
                  className="form-control"
                  value={this.state.lease_end_date}
                  onChange={this.handleInputChange} />
-          <label htmlFor="monthly_rent">monthly_rent</label>
+          <label htmlFor="monthly_rent">Monthly Rent</label>
           <input type="text"
                  name="monthly_rent"
                  className="form-control"
@@ -83,11 +86,11 @@ export default class AddLeaseForm extends React.Component {
                  onChange={this.handleInputChange} />
           <input type="submit" />
         </form>
-        <AddTenant />
         <Tenants 
           tenants={this.state.tenants}
           handleDeleteTenant={this.handleDeleteTenant}
           />
+        <AddTenant handleAddTenant={this.handleAddTenant} />
       </div>
     )
   }

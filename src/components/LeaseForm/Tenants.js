@@ -1,4 +1,5 @@
 import React from 'react';
+import Tenant from './Tenant';
 
 const Tenants = (props) => (
   <div>
@@ -6,7 +7,7 @@ const Tenants = (props) => (
       props.tenants.map((tenant_id) => (
         <Tenant
           key={tenant_id}
-          optionText={tenant}
+          tenantText={tenant_id}
           handleDeleteTenant={props.handleDeleteTenant}
         />
       ))

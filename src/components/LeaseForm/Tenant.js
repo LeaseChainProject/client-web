@@ -2,10 +2,10 @@ import React from 'react'
 
 const Tenant = (props) => (
   <div>
-    {props.optionText}
+    {props.tenantText}
     <button
       onClick={(e) => {
-        props.handleDeleteOption(props.optionText);
+        props.handleDeleteTenant(props.tenantText);
       }}
     >
       remove
@@ -13,4 +13,4 @@ const Tenant = (props) => (
   </div>
 );
 
-export default Option;
+export default Tenant;

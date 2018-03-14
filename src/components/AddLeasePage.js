@@ -3,8 +3,7 @@ import AddLeaseForm from './LeaseForm/AddLeaseForm';
 
 const AddLeasePage = () => (
   <div>
-    <h2>AddLease</h2>
-    This is my AddLease page
+    <h2>Add a Lease</h2>
     <AddLeaseForm />
   </div>
 )

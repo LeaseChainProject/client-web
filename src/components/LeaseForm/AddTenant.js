@@ -9,13 +9,13 @@ export default class AddTenant extends React.Component {
   handleAddTenant = (e) => {
     e.preventDefault();
 
-    const tenant = e.target.elements.tenant_id.value.trim();
-    const error = this.props.handleAddTenant(option);
+    const tenant_id = e.target.elements.tenant_id.value.trim();
+    const error = this.props.handleAddTenant(tenant_id);
 
     this.setState(() => ({ error }));
 
     if (!error) {
-      e.target.elements.option.value = '';
+      e.target.elements.tenant_id.value = '';
     }
   }
   render() {
