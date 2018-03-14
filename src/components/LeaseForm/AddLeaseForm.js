@@ -50,20 +50,37 @@ export default class AddLeaseForm extends React.Component {
   render() {
     return (
       <div>
-        <form>
-          <label>Unit ID
-          <input type="text" name="unit_id"
+        <form className="form-group">
+          <label htmlFor="unit_id">Unit ID</label>
+          <input type="text"
+                 className="form-control"
+                 name="unit_id"
                  value={this.state.unit_id}
                  onChange={this.handleInputChange}/>
-          </label>
-          <label>Unit Address
-          <input type="text" name="unit_address"
+          <label htmlFor="unit_address">Unit Address</label>
+          <input type="text"
+                 name="unit_address"
+                 className="form-control"
                  value={this.state.unit_address}
                  onChange={this.handleInputChange} />
-          </label>
-          Lease Start Date: <input name="lease_start_date" value={this.state.lease_start_date} />
-          Lease End Date: <input name="lease_end_date" value={this.state.lease_end_date} />
-          Rent: <input name="monthly_rent" value={this.state.monthly_rent} />
+          <label htmlFor="lease_start_date">Lease Start Date</label>
+          <input type="text"
+                 name="lease_start_date"
+                 className="form-control"
+                 value={this.state.lease_start_date}
+                 onChange={this.handleInputChange} />
+          <label htmlFor="lease_end_date">Lease End Date</label>
+          <input type="text"
+                 name="lease_end_date"
+                 className="form-control"
+                 value={this.state.lease_end_date}
+                 onChange={this.handleInputChange} />
+          <label htmlFor="monthly_rent">monthly_rent</label>
+          <input type="text"
+                 name="monthly_rent"
+                 className="form-control"
+                 value={this.state.monthly_rent}
+                 onChange={this.handleInputChange} />
           <input type="submit" />
         </form>
         <AddTenant />

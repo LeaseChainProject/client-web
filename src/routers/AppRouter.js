@@ -13,15 +13,23 @@ const AppRouter = () => (
   <BrowserRouter>
     <div>
       <Header/>
-      <Sidebar />
-      <Switch>
-        <Route path="/" component={DashboardPage} exact={true}/>
-        <Route path="/add-lease" component={AddLeasePage} />
-        <Route path="/lease-explorer" component={LeaseExplorerPage} />
-        <Route path="/property-explorer" component={PropertyExplorerPage} />
-        <Route path="/tenant-explorer" component={TenantExplorerPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <div className="container-fluid">
+        <div className="row">
+          <nav className="col-md-2 d-none d-md-block bg-light sidebar">
+              <Sidebar />
+          </nav>
+          <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <Switch>
+              <Route path="/" component={DashboardPage} exact={true}/>
+              <Route path="/add-lease" component={AddLeasePage} />
+              <Route path="/lease-explorer" component={LeaseExplorerPage} />
+              <Route path="/property-explorer" component={PropertyExplorerPage} />
+              <Route path="/tenant-explorer" component={TenantExplorerPage} />
+              <Route component={NotFoundPage} />
+            </Switch>
+          </main>
+        </div>
+      </div>
     </div>
   </BrowserRouter>
 );
