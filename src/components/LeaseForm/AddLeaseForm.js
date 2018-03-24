@@ -11,7 +11,13 @@ export default class AddLeaseForm extends React.Component {
     lease_end_date: '',
     monthly_rent: '',
     riders: [],
-    selected_riders: []
+    selected_riders: [],
+    PropertyName: "",
+    PropertyNameOptions: ["Dan Graca Tower", "Sahil Manocha Properties", "Patrick Keppenne Condos", "528 Riverside Drive"],
+    ApartmentNumber: "",
+    ApartmentNumberOptions: [401, 402, 403, 404],
+    TenantEmail: "",
+    TenantEmailOptions: ["sahil@gmail.com", "manocha@gmail.com"]
   }
 
   handleLeaseTerms = (lease_terms) => {
@@ -52,45 +58,126 @@ export default class AddLeaseForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <form className="form-group">
-          <label htmlFor="unit_id">Unit ID</label>
-          <input type="text"
+      <div className="col-lg-6 col-md-8 col-xs-10">
+        <form>
+          <fieldset>
+            <h4>Add a new lease record here.</h4>
+            <br />
+            <div className="form-group">
+              <label htmlFor="Property">Property</label>
+                <select
                  className="form-control"
-                 name="unit_id"
-                 value={this.state.unit_id}
-                 onChange={this.handleInputChange}/>
-          <label htmlFor="unit_address">Unit Address</label>
-          <input type="text"
-                 name="unit_address"
+                 id="PropertyName"
+                 name="PropertyName"
+                 value={this.state.PropertyName}
+                 onChange={this.handleChange}>
+                  {
+                    this.state.PropertyNameOptions.map((PropertyNameOption) => (
+                      <option
+                        key={PropertyNameOption}
+                        value={PropertyNameOption}>
+                        {PropertyNameOption}
+                      </option>
+                    ))
+                  }
+                </select>
+                <small id="Propertysmall">Property Name</small>
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="ApartmentNumber">Apartment Number</label>
+                <select
                  className="form-control"
-                 value={this.state.unit_address}
-                 onChange={this.handleInputChange} />
-          <label htmlFor="lease_start_date">Lease Start Date</label>
-          <input type="text"
-                 name="lease_start_date"
-                 className="form-control"
-                 value={this.state.lease_start_date}
-                 onChange={this.handleInputChange} />
-          <label htmlFor="lease_end_date">Lease End Date</label>
-          <input type="text"
-                 name="lease_end_date"
-                 className="form-control"
-                 value={this.state.lease_end_date}
-                 onChange={this.handleInputChange} />
-          <label htmlFor="monthly_rent">Monthly Rent</label>
-          <input type="text"
-                 name="monthly_rent"
-                 className="form-control"
-                 value={this.state.monthly_rent}
-                 onChange={this.handleInputChange} />
-          <input type="submit" />
+                 id="ApartmentNumber"
+                 name="ApartmentNumber"
+                 value={this.state.ApartmentNumber}
+                 onChange={this.handleChange}>
+                  {
+                    this.state.ApartmentNumberOptions.map((ApartmentNumberOption) => (
+                      <option
+                        key={ApartmentNumberOption}
+                        value={ApartmentNumberOption}>
+                        {ApartmentNumberOption}
+                      </option>
+                    ))
+                  }
+                </select>
+              <small id="ApartmentNumberSmall">Apartment Number</small>
+          </div>
+
+          <div className="form-group">
+              <label htmlFor="UnitType">Unit Type</label>
+              <input type="text"
+                     readOnly
+                     className="form-control"
+                     id="UnitType"
+                     name="UnitType" 
+                     value={this.state.UnitType} />
+              <small id="UnitTypesmall">Type of the Unit</small>
+          </div>
+          <div className="form-group">
+              <label htmlFor="TenantEmail">Tenant e-mail</label>
+              <select
+                className="form-control"
+                id="TenantEmail"
+                name="TenantEmail"
+                value={this.state.TenantEmail}
+                onChange={this.handleChange}>
+                {
+                  this.state.TenantEmailOptions.map((TenantEmailOption) => (
+                    <option
+                      key={TenantEmailOption}
+                      value={TenantEmailOption}>
+                      {TenantEmailOption}
+                    </option>
+                  ))
+                }
+              </select>
+              <small id="Tenantemailsmall">Tenant e-mail</small>
+          </div>
+          <div className="form-group">
+              <label htmlFor="LeaseType">Deposit Amount</label>
+              <input type="text"
+                     className="form-control"
+                     id="LeaseType"
+                     name="LeaseType" 
+                     value={this.state.LeaseType}
+                     onChange={this.handleInputChange} />
+              <small id="LeaseTypesmall">Deposit Amount</small>
+          </div>
+          <div className="form-group">
+              <label htmlFor="LeaseFromDate">Lease From Date</label>
+              <input type="date"
+                     className="form-control"
+                     id="LeaseFromDate"
+                     name="LeaseFromDate" 
+                     value={this.state.LeaseFromDate}
+                     onChange={this.handleInputChange} />
+              <small id="LeaseFromDatesmall">Lease Start Date</small>
+          </div>
+          <div className="form-group">
+              <label htmlFor="LeaseToDate">Lease To Date</label>
+              <input type="date"
+                     className="form-control"
+                     id="LeaseToDate"
+                     name="LeaseToDate" 
+                     value={this.state.LeaseToDate}
+                     onChange={this.handleInputChange} />
+              <small id="LeaseToDatesmall">Lease End Date</small>
+          </div>
+          <div className="form-group">
+              <label htmlFor="MonthlyRent">Monthly Rent</label>
+              <input type="text"
+                     className="form-control"
+                     id="MonthlyRent"
+                     name="MonthlyRent" 
+                     value={this.state.MonthlyRent}
+                     onChange={this.handleInputChange} />
+              <small id="MonthlyRentsmall">Rent per month</small>
+          </div>
+        <button type="submit" className="btn btn-primary">Submit</button>&nbsp;&nbsp;&nbsp;<button type="submit" className="btn btn-secondary">Preview</button>
+          </fieldset>
         </form>
-        <Tenants 
-          tenants={this.state.tenants}
-          handleDeleteTenant={this.handleDeleteTenant}
-          />
-        <AddTenant handleAddTenant={this.handleAddTenant} />
       </div>
     )
   }

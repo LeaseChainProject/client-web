@@ -1,0 +1,29 @@
+/* These are the main divs which partitions the website into
+various sections  */
+
+.blue{
+	
+	color: #2196F3;
+}
+
+.green{
+	
+	color: #4CAF50;
+}
+
+#body-container{
+	margin-left:2%;
+	padding-top: 2%;
+	margin: 0 auto;	
+}
+
+.nav-item{
+	font-size: 1.25em;
+}
+
+.row{
+	
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+}
