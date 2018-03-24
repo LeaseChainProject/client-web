@@ -1,9 +1,8 @@
 import React from 'react';
-import AddTenant from './AddTenant'
-import Tenants from './Tenants'
 
 export default class AddLeaseForm extends React.Component {
   state = {
+    // TODO
     unit_id: '',
     unit_address: '',
     tenants: [],
