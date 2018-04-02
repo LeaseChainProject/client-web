@@ -13,9 +13,9 @@ const Header = () => (
                         <a className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-toggle="dropdown"><i className="fa fa-file"></i> Reports
                         </a>
                         <div className="dropdown-menu" >
-                            <Link className="dropdown-item blue" to="portfolio"><i className="fa fa-stack-exchange"></i> Portfolio Overview</Link>
-                            <Link className="dropdown-item blue" to="property"><i className="fa fa-building"></i> Property Overview</Link>
-                            <Link className="dropdown-item blue" to="tenant"><i className="fa fa-users"></i> Tenant Overview</Link>
+                            <Link className="dropdown-item blue" to="portfolio-overview"><i className="fa fa-stack-exchange"></i> Portfolio Overview</Link>
+                            <Link className="dropdown-item blue" to="properties-overview"><i className="fa fa-building"></i> Properties Overview</Link>
+                            <Link className="dropdown-item blue" to="tenants-overview"><i className="fa fa-users"></i> Tenants Overview</Link>
                         </div>
                     </li>
                     <li className="nav-item dropdown">
@@ -23,9 +23,9 @@ const Header = () => (
                         <i className="fa fa-plus"></i> Transactions
                         </a>
                         <div className="dropdown-menu" >
-                            <Link className="dropdown-item green" to="addproperty"><i className="fa fa-building"></i> Add Property</Link>
-                            <Link className="dropdown-item green" to="addlease"><i className="fa fa-file"></i> Add Lease</Link>
-                            <Link className="dropdown-item green" to="addtenant"><i className="fa fa-users"></i> Add Tenant</Link>
+                            <Link className="dropdown-item green" to="add-property"><i className="fa fa-building"></i> Add Property</Link>
+                            <Link className="dropdown-item green" to="add-lease"><i className="fa fa-file"></i> Add Lease</Link>
+                            <Link className="dropdown-item green" to="add-tenant"><i className="fa fa-users"></i> Add Tenant</Link>
                         </div>
                     </li>
                 </ul>

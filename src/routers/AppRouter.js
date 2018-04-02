@@ -1,14 +1,15 @@
-import React from 'react';
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import DashboardPage from '../components/DashboardPage';
-import AddLeasePage from '../components/AddLeasePage';
-import LeaseExplorerPage from '../components/LeaseExplorerPage';
-import PropertyExplorerPage from '../components/PropertyExplorerPage';
-import TenantExplorerPage from '../components/TenantExplorerPage';
-import LoginPage from '../components/LoginPage';
-import NotFoundPage from '../components/NotFoundPage';
+import React from 'react'
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
+import Header from '../components/Header'
+import AddLeasePage from '../components/AddLeasePage'
+import LoginPage from '../components/LoginPage'
+import NotFoundPage from '../components/NotFoundPage'
+import PortfolioOverviewPage from '../components/PortfolioOverviewPage'
+import PropertiesOverviewPage from '../components/PropertiesOverviewPage'
+import TenantsOverviewPage from '../components/TenantsOverviewPage'
+import AddPropertyPage from '../components/AddPropertyPage';
+import AddTenantPage from '../components/AddTenantPage';
+
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -17,19 +18,20 @@ const AppRouter = () => (
       <div className="container-fluid">
         <div className="row-fluid">
             <Switch>
-              <Route path="/" component={DashboardPage} exact={true}/>
+              <Route path="/" component={LoginPage} exact={true}/>
+              <Route path="/properties-overview" component={PropertiesOverviewPage} />
+              <Route path="/tenants-overview" component={TenantsOverviewPage} />
+              <Route path="/portfolio-overview" component={PortfolioOverviewPage} />
               <Route path="/add-lease" component={AddLeasePage} />
-              <Route path="/lease-explorer" component={LeaseExplorerPage} />
-              <Route path="/property-explorer" component={PropertyExplorerPage} />
-              <Route path="/tenant-explorer" component={TenantExplorerPage} />
-              <Route path="/login-page" component={LoginPage} />
+              <Route path="/add-property" component={AddPropertyPage} />
+              <Route path="/add-tenant" component={AddTenantPage} />
               <Route component={NotFoundPage} />
             </Switch>
         </div>
       </div>
     </div>
   </BrowserRouter>
-);
+)
 
 
-export default AppRouter;
+export default AppRouter
