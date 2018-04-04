@@ -16,7 +16,7 @@ export default class AddLeaseForm extends React.Component {
     ApartmentNumber: "",
     ApartmentNumberOptions: [401, 402, 403, 404],
     TenantEmail: "",
-    TenantEmailOptions: ["sahil@gmail.com", "manocha@gmail.com"]
+    TenantEmailOptions: ["manocha@gmail.com"]
   }
 
   componentDidMount() {
