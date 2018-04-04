@@ -27,7 +27,7 @@ export default class AddLeaseForm extends React.Component {
         'Content-Type': "application/json"
       }
     }
-    fetch('http://leasechain.rent/api/properties', options)
+    fetch('http://localhost:3000/properties', options)
     .then((res) => (res.json()))
     .then((properties) => {
       const property_ids = properties.map(property => property.property_id)

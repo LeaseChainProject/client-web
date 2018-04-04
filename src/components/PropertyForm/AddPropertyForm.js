@@ -63,7 +63,7 @@ export default class AddPropertyForm extends React.Component {
       mode: 'cors'
     }
 
-    fetch('http://leasechain.rent/api/add-property', options)
+    fetch('http://localhost:3000/add-property', options)
     .then((res) => console.log(res))
   }
 
