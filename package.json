@@ -7,12 +7,8 @@
   "scripts": {
     "serve": "live-server public/",
     "build": "webpack",
-    "dev-server": "webpack-dev-server"
-  },
-  "husky": {
-    "hooks": {
-      "post-commit": "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/"
-    }
+    "dev-server": "webpack-dev-server",
+    "postcommit":  "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
