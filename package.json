@@ -11,7 +11,7 @@
   },
   "husky": {
     "hooks": {
-      "post-commit": "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/" 
+      "post-commit": "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/"
     }
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
     "html-to-react-components": "^1.6.3",
+    "husky": "^0.14.3",
     "live-server": "^1.2.0",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
@@ -40,7 +41,5 @@
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
   },
-  "devDependencies": {
-    "husky": "^0.14.3"
-  }
+  "devDependencies": {}
 }
