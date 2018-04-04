@@ -1,4 +1,6 @@
 import React from 'react'
+import Units from './Units.js'
+import AddUnit from './AddUnit.js'
 
 export default class AddPropertyForm extends React.Component {
   constructor (props) {
@@ -8,11 +10,14 @@ export default class AddPropertyForm extends React.Component {
       address: '',
       zipcode: '',
       num_units: '',
-      property_id: ''
+      property_id: '',
+      units: []
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleUnitDelete = this.handleUnitDelete.bind(this);
+    this.handleAddUnit = this.handleAddUnit.bind(this);
   }
 
   handleChange = (e) => {
@@ -20,6 +25,22 @@ export default class AddPropertyForm extends React.Component {
     const value = e.target.value;
     this.setState({
       [name]: value
+    })
+  }
+
+  handleAddUnit = (unit) => {
+    this.setState((prevState, props) => {
+      return {
+        units: [...prevState.units, unit]
+      }
+    })
+    console.log(unit);
+  }
+
+  handleUnitDelete = (uuid) => {
+    const units = this.state.units.filter(unit => unit.uuid !== uuid)
+    this.setState({
+      units
     })
   }
 
@@ -33,7 +54,8 @@ export default class AddPropertyForm extends React.Component {
         address: this.state.address,
         zipcode: this.state.zipcode,
         num_units: this.state.num_units,
-        property_id: this.state.property_id
+        property_id: this.state.property_id,
+        units: this.state.units
       }),
       headers: {
         'Content-Type': "application/json"
@@ -41,9 +63,10 @@ export default class AddPropertyForm extends React.Component {
       mode: 'cors'
     }
 
-    fetch('http://localhost:3000/add-property', options)
+    fetch('http://leasechain.rent/api/add-property', options)
     .then((res) => console.log(res))
   }
+
   render() {
     return (
       <div className="col-lg-6 col-md-8 col-xs-10">
@@ -106,33 +129,8 @@ export default class AddPropertyForm extends React.Component {
               <small id="NumberofUnitssmall">Number of Units in the property</small>
             </div>
             <br/>
-            {/*
-            <h4>Units</h4><br/>
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Unit #</th>
-                  <th>Unit Type</th>
-                  <th>Apartment #</th>
-                  <th><a href="link-to-add-script"><i className="green fa fa-plus"></i></a></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>2BR/2BA</td>
-                  <td>401</td>
-                  <td><a href="link-to-del-script"><i className="blue fa fa-times"></i></a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>1BR/1BA</td>
-                  <td>402</td>
-                  <td><a href="link-to-del-script"><i className="blue fa fa-times"></i></a></td>
-                </tr>
-              </tbody>
-            </table>
-            */}
+            <Units units={this.state.units} handleUnitDelete={this.handleUnitDelete}/>
+            <AddUnit handleAddUnit={this.handleAddUnit}/>
             <button type="submit" className="btn btn-primary">Create</button>&nbsp;&nbsp;&nbsp;<button type="submit" className="btn btn-secondary">Edit</button>
         </fieldset>
       </form>

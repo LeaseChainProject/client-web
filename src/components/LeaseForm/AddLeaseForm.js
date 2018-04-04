@@ -11,12 +11,32 @@ export default class AddLeaseForm extends React.Component {
     monthly_rent: '',
     riders: [],
     selected_riders: [],
-    PropertyName: "",
-    PropertyNameOptions: ["Dan Graca Tower", "Sahil Manocha Properties", "Patrick Keppenne Condos", "528 Riverside Drive"],
+    property_id: "",
+    property_id_options: ['ABC', 'DEF'],
     ApartmentNumber: "",
     ApartmentNumberOptions: [401, 402, 403, 404],
     TenantEmail: "",
     TenantEmailOptions: ["sahil@gmail.com", "manocha@gmail.com"]
+  }
+
+  componentDidMount() {
+    const options = {
+      method: 'GET',
+      cors: 'no-cors',
+      headers: {
+        'Content-Type': "application/json"
+      }
+    }
+    fetch('http://leasechain.rent/api/properties', options)
+    .then((res) => (res.json()))
+    .then((properties) => {
+      const property_ids = properties.map(property => property.property_id)
+      console.log(property_ids)
+      this.setState((prevState) => ({
+        ...prevState,
+        property_id_options: property_ids
+      }))
+    })
   }
 
   handleLeaseTerms = (lease_terms) => {
@@ -66,21 +86,21 @@ export default class AddLeaseForm extends React.Component {
               <label htmlFor="Property">Property</label>
                 <select
                  className="form-control"
-                 id="PropertyName"
-                 name="PropertyName"
-                 value={this.state.PropertyName}
+                 id="property_name"
+                 name="property_name"
+                 value={this.state.property_name}
                  onChange={this.handleChange}>
                   {
-                    this.state.PropertyNameOptions.map((PropertyNameOption) => (
+                    this.state.property_id_options.map((property_id_option) => (
                       <option
-                        key={PropertyNameOption}
-                        value={PropertyNameOption}>
-                        {PropertyNameOption}
+                        key={property_id_option}
+                        value={property_id_option}>
+                        {property_id_option}
                       </option>
                     ))
                   }
                 </select>
-                <small id="Propertysmall">Property Name</small>
+                <small id="Propertysmall">Property ID</small>
           </div>
 
           <div className="form-group">
