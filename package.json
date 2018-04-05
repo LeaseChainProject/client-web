@@ -8,7 +8,7 @@
     "serve": "live-server public/",
     "build": "webpack",
     "dev-server": "webpack-dev-server",
-    "postcommit":  "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/"
+    "postcommit": "rsync -avz public/ altairmn@35.190.131.135:/home/altairmn/build/"
   },
   "dependencies": {
     "babel-cli": "6.24.1",
@@ -34,6 +34,7 @@
     "style-loader": "0.18.2",
     "uuid": "^3.2.1",
     "validator": "8.0.0",
+    "web3": "^1.0.0-beta.33",
     "webpack": "3.1.0",
     "webpack-dev-server": "2.5.1"
   },

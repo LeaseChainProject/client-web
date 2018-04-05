@@ -7,8 +7,8 @@ import NotFoundPage from '../components/NotFoundPage'
 import PortfolioOverviewPage from '../components/PortfolioOverviewPage'
 import PropertiesOverviewPage from '../components/PropertiesOverviewPage'
 import TenantsOverviewPage from '../components/TenantsOverviewPage'
-import AddPropertyPage from '../components/AddPropertyPage';
-import AddTenantPage from '../components/AddTenantPage';
+import AddPropertyPage from '../components/AddPropertyPage'
+import AddTenantPage from '../components/AddTenantPage'
 
 
 const AppRouter = () => (
