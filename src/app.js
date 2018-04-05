@@ -8,14 +8,6 @@ import getWeb3 from './util/web3/getWeb3'
 import AppRouter from './routers/AppRouter';
 import store from './store/createStore'
 
-ReactDOM.render((
-    <Provider store={store}>
-      <AppRouter />
-    </Provider>
-  ),
-  document.getElementById('app')
-)
-
 // Initialize web3 and set in Redux.
 getWeb3
 .then(results => {
@@ -24,3 +16,11 @@ getWeb3
 .catch(() => {
   console.log('Error in web3 initialization.')
 })
+
+ReactDOM.render((
+    <Provider store={store}>
+      <AppRouter />
+    </Provider>
+  ),
+  document.getElementById('app')
+)
